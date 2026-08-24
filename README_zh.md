@@ -84,7 +84,7 @@ DODHooks 是一个面向 **《胜利之日：起源》(Day of Defeat: Source)** 
 | 依赖 | 版本 | 说明 |
 |------|------|------|
 | SourceMod | 1.12 / 1.13 | 编译需要源代码 |
-| Metamod:Source | 1.12 / 1.13 | 编译需要源代码 |
+| Metamod:Source | 1.12 / 2.0 | 编译需要源代码 |
 | AMBuild | 2.2+ | 基于 Python 的构建系统 |
 | Python | 3.8+ | AMBuild 运行所需 |
 | 编译器 | GCC 9+ / Clang 10+ / MSVC 2019+ | 需支持 C++17 |
