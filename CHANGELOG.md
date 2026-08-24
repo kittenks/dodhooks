@@ -95,5 +95,5 @@ built against SourceMod 1.12.
 ### Compatibility
 
 - SourceMod 1.12 / 1.13
-- Metamod:Source 1.11 / 2.0
+- Metamod:Source 1.12 / 2.0
 - Windows and Linux, 32-bit and 64-bit
