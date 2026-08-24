@@ -74,7 +74,7 @@ DODHooks is a SourceMod extension for **Day of Defeat: Source** that provides:
 This version is a maintained fork that:
 
 - Supports **SourceMod 1.12 and 1.13**
-- Supports **Metamod:Source 1.12 and 1.13**
+- Supports **Metamod:Source 1.12 and 2.0**
 - Compiles for **both 32-bit (x86) and 64-bit (x86_64)** architectures
 - Works on **Windows and Linux**
 - Uses the **latest AMBuild 2.x** build system
