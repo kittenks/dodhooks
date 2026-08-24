@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/kittenks/dodhooks/actions">
-    <img src="https://github.com/kittenks/dodhooks/workflows/CI/badge.svg" alt="CI" />
+  <a href="https://github.com/kittenks/dodhooks/actions/workflows/master.yaml">
+    <img src="https://github.com/kittenks/dodhooks/actions/workflows/master.yaml/badge.svg" alt="Build Status" />
   </a>
   <a href="https://github.com/kittenks/dodhooks/releases/latest">
     <img src="https://img.shields.io/github/v/release/kittenks/dodhooks?style=flat-square&label=Latest%20Release" alt="Latest Release" />
@@ -18,7 +18,7 @@
   <a href="https://github.com/kittenks/dodhooks/releases">
     <img src="https://img.shields.io/github/downloads/kittenks/dodhooks/total?style=flat-square&label=Downloads" alt="Total Downloads" />
   </a>
-  <a href="https://github.com/kittenks/dodhooks/releases/tag/v1.6.0">
+  <a href="https://github.com/kittenks/dodhooks/releases/latest">
     <img src="https://img.shields.io/github/release-date/kittenks/dodhooks?style=flat-square&label=Released" alt="Release Date" />
   </a>
   <img src="https://img.shields.io/badge/SourceMod-1.12%20%2F%201.13-orange?style=flat-square" alt="SourceMod" />
@@ -30,19 +30,23 @@
 
 ## Download
 
-Latest stable release: **v1.6.0** (released 2026-08-24)
+<p align="center">
+  <a href="https://github.com/kittenks/dodhooks/releases/latest">
+    <img src="https://img.shields.io/github/v/release/kittenks/dodhooks?style=for-the-badge&label=Latest%20Stable%20Release&color=brightgreen" alt="Latest Stable Release" />
+  </a>
+</p>
 
 <p align="center">
-  <a href="https://github.com/kittenks/dodhooks/releases/download/v1.6.0/DODHooks-1.6.0-sm1.12-windows.zip">
-    <img src="https://img.shields.io/badge/🪟%20Windows-DODHooks--1.6.0--sm1.12--windows.zip-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Download Windows" />
+  <a href="https://github.com/kittenks/dodhooks/releases/latest">
+    <img src="https://img.shields.io/badge/🪟%20Download%20for%20Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" />
   </a>
   &nbsp;
-  <a href="https://github.com/kittenks/dodhooks/releases/download/v1.6.0/DODHooks-1.6.0-sm1.12-linux.zip">
-    <img src="https://img.shields.io/badge/🐧%20Linux-DODHooks--1.6.0--sm1.12--linux.zip-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Download Linux" />
+  <a href="https://github.com/kittenks/dodhooks/releases/latest">
+    <img src="https://img.shields.io/badge/🐧%20Download%20for%20Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Download for Linux" />
   </a>
   &nbsp;
-  <a href="https://github.com/kittenks/dodhooks/releases/download/v1.6.0/DODHooks-1.6.0-source.zip">
-    <img src="https://img.shields.io/badge/📦%20Source-DODHooks--1.6.0--source.zip-4285F4?style=for-the-badge&logo=github&logoColor=white" alt="Download Source" />
+  <a href="https://github.com/kittenks/dodhooks/releases/latest">
+    <img src="https://img.shields.io/badge/📦%20Download%20Source-4285F4?style=for-the-badge&logo=github&logoColor=white" alt="Download Source" />
   </a>
 </p>
 
@@ -52,8 +56,10 @@ Latest stable release: **v1.6.0** (released 2026-08-24)
   </a>
 </p>
 
-> Each archive contains the 32-bit extension binary, a `x64/` subfolder with
-> the 64-bit binary, `gamedata/dodhooks.txt`, and `scripting/include/dodhooks.inc`.
+> Each release archive contains the 32-bit extension binary, an `x64/`
+> subfolder with the 64-bit binary, `gamedata/dodhooks.txt`, and
+> `scripting/include/dodhooks.inc`. The version number above is detected
+> automatically from the latest GitHub release — no manual update needed.
 
 ---
 
