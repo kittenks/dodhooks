@@ -13,17 +13,17 @@
     <img src="https://github.com/kittenks/dodhooks/actions/workflows/master.yaml/badge.svg" alt="构建状态" />
   </a>
   <a href="https://github.com/kittenks/dodhooks/releases/latest">
-    <img src="https://img.shields.io/github/v/release/kittenks/dodhooks?style=flat-square&label=最新版本" alt="最新版本" />
+    <img src="https://img.shields.io/github/v/release/kittenks/dodhooks?style=flat-square&label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC" alt="最新版本" />
   </a>
   <a href="https://github.com/kittenks/dodhooks/releases">
-    <img src="https://img.shields.io/github/downloads/kittenks/dodhooks/total?style=flat-square&label=下载量" alt="总下载量" />
+    <img src="https://img.shields.io/github/downloads/kittenks/dodhooks/total?style=flat-square&label=%E4%B8%8B%E8%BD%BD%E9%87%8F" alt="总下载量" />
   </a>
   <a href="https://github.com/kittenks/dodhooks/releases/latest">
-    <img src="https://img.shields.io/github/release-date/kittenks/dodhooks?style=flat-square&label=发布日期" alt="发布日期" />
+    <img src="https://img.shields.io/github/release-date/kittenks/dodhooks?style=flat-square&label=%E5%8F%91%E5%B8%83%E6%97%A5%E6%9C%9F" alt="发布日期" />
   </a>
   <img src="https://img.shields.io/badge/SourceMod-1.12%20%2F%201.13-orange?style=flat-square" alt="SourceMod" />
-  <img src="https://img.shields.io/badge/平台-Windows%20%2F%20Linux-blue?style=flat-square" alt="平台" />
-  <img src="https://img.shields.io/badge/架构-x86%20%2F%20x64-green?style=flat-square" alt="架构" />
+  <img src="https://img.shields.io/badge/%E5%B9%B3%E5%8F%B0-Windows%20%2F%20Linux-blue?style=flat-square" alt="平台" />
+  <img src="https://img.shields.io/badge/%E6%9E%B6%E6%9E%84-x86%20%2F%20x64-green?style=flat-square" alt="架构" />
 </p>
 
 ---
@@ -32,27 +32,27 @@
 
 <p align="center">
   <a href="https://github.com/kittenks/dodhooks/releases/latest">
-    <img src="https://img.shields.io/github/v/release/kittenks/dodhooks?style=for-the-badge&label=最新稳定版本&color=brightgreen" alt="最新稳定版本" />
+    <img src="https://img.shields.io/github/v/release/kittenks/dodhooks?style=for-the-badge&label=%E6%9C%80%E6%96%B0%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC&color=brightgreen" alt="最新稳定版本" />
   </a>
 </p>
 
 <p align="center">
   <a href="https://github.com/kittenks/dodhooks/releases/latest">
-    <img src="https://img.shields.io/badge/🪟%20下载%20Windows%20版-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="下载 Windows 版" />
+    <img src="https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD-Windows%E7%89%88-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="下载 Windows 版" />
   </a>
   &nbsp;
   <a href="https://github.com/kittenks/dodhooks/releases/latest">
-    <img src="https://img.shields.io/badge/🐧%20下载%20Linux%20版-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="下载 Linux 版" />
+    <img src="https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD-Linux%E7%89%88-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="下载 Linux 版" />
   </a>
   &nbsp;
   <a href="https://github.com/kittenks/dodhooks/releases/latest">
-    <img src="https://img.shields.io/badge/📦%20下载源代码-4285F4?style=for-the-badge&logo=github&logoColor=white" alt="下载源代码" />
+    <img src="https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD-%E6%BA%90%E4%BB%A3%E7%A0%81-4285F4?style=for-the-badge&logo=github&logoColor=white" alt="下载源代码" />
   </a>
 </p>
 
 <p align="center">
   <a href="https://github.com/kittenks/dodhooks/releases">
-    <img src="https://img.shields.io/badge/📂%20查看全部版本-gray?style=flat-square" alt="全部版本" />
+    <img src="https://img.shields.io/badge/%E6%9F%A5%E7%9C%8B-%E5%85%A8%E9%83%A8%E7%89%88%E6%9C%AC-gray?style=flat-square" alt="全部版本" />
   </a>
 </p>
 
@@ -71,7 +71,7 @@ DODHooks 是一个面向 **《胜利之日：起源》(Day of Defeat: Source)** 
 本版本为持续维护的分支，特性包括：
 
 - 支持 **SourceMod 1.12 与 1.13**
-- 支持 **Metamod:Source 1.12 与 1.13**
+- 支持 **Metamod:Source 1.12 与 2.0**
 - 同时编译 **32 位（x86）与 64 位（x86_64）** 架构
 - 兼容 **Windows 与 Linux**
 - 使用最新的 **AMBuild 2.x** 构建系统
