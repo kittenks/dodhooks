@@ -87,7 +87,7 @@ This version is a maintained fork that:
 | Dependency | Version | Notes |
 |------------|---------|-------|
 | SourceMod | 1.12 / 1.13 | Source code required for building |
-| Metamod:Source | 1.12 / 1.13 | Source code required for building |
+| Metamod:Source | 1.12 / 2.0 | Source code required for building |
 | AMBuild | 2.2+ | Python-based build system |
 | Python | 3.8+ | Required for AMBuild |
 | Compiler | GCC 9+ / Clang 10+ / MSVC 2019+ | C++17 support required |
