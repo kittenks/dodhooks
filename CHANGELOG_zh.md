@@ -60,5 +60,5 @@ DODHooks 的所有重要变更都会记录在此文件中。
 ### 兼容性
 
 - SourceMod 1.12 / 1.13
-- Metamod:Source 1.12
+- Metamod:Source 1.12 / 2.0
 - Windows / Linux，32 位与 64 位
