@@ -39,7 +39,7 @@
 
 #define SMEXT_CONF_NAME            "DODHooks"
 #define SMEXT_CONF_DESCRIPTION     "SourceMod extension with Detours & Natives for Day of Defeat: Source"
-#define SMEXT_CONF_VERSION         "1.6.0"
+#define SMEXT_CONF_VERSION         "1.6.1"
 #define SMEXT_CONF_AUTHOR          "Andersso, ChesterSmitty, Apfelwurm, DNA-styx, Kittenks"
 #define SMEXT_CONF_URL             "https://github.com/kittenks/dodhooks"
 #define SMEXT_CONF_LOGTAG          "DODHOOKS"

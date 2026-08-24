@@ -1,42 +1,88 @@
-/**
- * DODHooks - SourcePawn Include File
- *
- * Provides natives and forwards for the DODHooks extension.
- * Compatible with SourceMod 1.12 / 1.13
- */
-
 #if defined _dodhooks_included
  #endinput
 #endif
 #define _dodhooks_included
 
 /**
+ * DODHooks - SourcePawn Include File
+ *
+ * Provides natives and forwards for the DODHooks extension.
+ * Compatible with SourceMod 1.12 / 1.13
+ *
+ * Based on the original 2015 (psychonic) include, updated for
+ * the modern DOD_ prefixed native API and new SourcePawn syntax.
+ */
+
+#define MAX_CONTROL_POINTS 8
+
+/**
  * Auto-loads the DODHooks extension whenever a plugin includes this file.
- * SourceMod will load "dodhooks.ext" (resolved to dodhooks.ext.2.dods) when
- * the plugin starts, so no manual "sm exts load" or ".autoload" file is
- * required. Set autoload = 0 if you prefer to control loading yourself.
+ *
+ * IMPORTANT: The "file" field must be the BASE name "dodhooks.ext" —
+ * SourceMod automatically appends the game-specific suffix (.2.dods)
+ * and platform extension (.so/.dll) when resolving the binary.
+ * Do NOT write "dodhooks.ext.2.dods" here or auto-load will fail.
  */
 public Extension __ext_dodhooks =
 {
     name = "DODHooks",
-    file = "dodhooks.ext.2.dods",
+    file = "dodhooks.ext",
+#if defined AUTOLOAD_EXTENSIONS
     autoload = 1,
+#else
+    autoload = 0,
+#endif
+#if defined REQUIRE_EXTENSIONS
+    required = 1,
+#else
     required = 0,
+#endif
 };
+
+#if !defined REQUIRE_EXTENSIONS
+public __ext_dodhooks_SetNTVOptional()
+{
+    MarkNativeAsOptional("DOD_GetPlayerClass");
+    MarkNativeAsOptional("DOD_SetPlayerClass");
+    MarkNativeAsOptional("DOD_GetDesiredPlayerClass");
+    MarkNativeAsOptional("DOD_SetDesiredPlayerClass");
+    MarkNativeAsOptional("DOD_PopHelmet");
+    MarkNativeAsOptional("DOD_SetNumControlPoints");
+    MarkNativeAsOptional("DOD_PrecacheCPIcon");
+    MarkNativeAsOptional("DOD_SetCPIcons");
+    MarkNativeAsOptional("DOD_SetCPVisible");
+    MarkNativeAsOptional("DOD_PauseTimer");
+    MarkNativeAsOptional("DOD_ResumeTimer");
+    MarkNativeAsOptional("DOD_SetTimeRemaining");
+    MarkNativeAsOptional("DOD_GetTimeRemaining");
+    MarkNativeAsOptional("DOD_RespawnPlayer");
+    MarkNativeAsOptional("DOD_AddWaveTime");
+    MarkNativeAsOptional("DOD_SetWinningTeam");
+    MarkNativeAsOptional("DOD_SetRoundState");
+    MarkNativeAsOptional("DOD_SetPlayerState");
+    MarkNativeAsOptional("DOD_SetBombTargetState");
+}
+#endif
+
+/**
+ * ============================================================
+ * ENUMS
+ * ============================================================
+ */
 
 /**
  * Player class constants
  */
 enum DODPlayerClass
 {
-    DODClass_Random      = -2,
-    DODClass_None        = 0,
-    DODClass_Rifleman    = 1,
-    DODClass_Assault     = 2,
-    DODClass_Support     = 3,
-    DODClass_Sniper      = 4,
+    DODClass_Random       = -2,
+    DODClass_None         = 0,
+    DODClass_Rifleman     = 1,
+    DODClass_Assault      = 2,
+    DODClass_Support      = 3,
+    DODClass_Sniper       = 4,
     DODClass_Machinegunner = 5,
-    DODClass_Rocket      = 6,
+    DODClass_Rocket       = 6,
 };
 
 /**
@@ -46,6 +92,110 @@ enum DODPlayerClass
 #define DODTeam_Spectator   1
 #define DODTeam_Allies      2
 #define DODTeam_Axis        3
+
+/**
+ * Round state constants
+ */
+enum DODRoundState
+{
+    DoDRoundState_RoundInit = 0,
+    DoDRoundState_PreGame,
+    DoDRoundState_StartGame,
+    DoDRoundState_PreRound,
+    DoDRoundState_RoundRunning,
+    DoDRoundState_AlliesWin,
+    DoDRoundState_AxisWin,
+    DoDRoundState_Restart,
+    DoDRoundState_GameOver,
+    DoDRoundState_Size
+};
+
+/**
+ * Player state constants
+ */
+enum DODPlayerState
+{
+    PlayerState_Active = 0,
+    PlayerState_Welcome = 1,
+    PlayerState_PickingTeam = 2,
+    PlayerState_PickingClass = 3,
+    PlayerState_DeathAnim = 4,
+    PlayerState_ObserverMode = 6,
+    PlayerState_Size
+};
+
+/**
+ * Bomb target state constants
+ */
+enum DODBombTargetState
+{
+    BombTargetState_Inactive = 0,
+    BombTargetState_Active,
+    BombTargetState_Armed,
+    BombTargetState_Size
+};
+
+/**
+ * Voice command constants
+ */
+enum DODVoiceCommand
+{
+    Voice_Attack = 0,
+    Voice_Hold,
+    Voice_Left,
+    Voice_Right,
+    Voice_StickTogether,
+    Voice_Cover,
+    Voice_UseSmoke,
+    Voice_UseGrens,
+    Voice_CeaseFire,
+    Voice_YesSir,
+    Voice_Negative,
+    Voice_Backup,
+    Voice_FireInHole,
+    Voice_Grenade,
+    Voice_Sniper,
+    Voice_NiceShot,
+    Voice_Thanks,
+    Voice_AreaClear,
+    Voice_DropWeapons,
+    Voice_Displace,
+    Voice_MgAhead,
+    Voice_EnemyBehind,
+    Voice_WeGotHim,
+    Voice_MoveUpMg,
+    Voice_NeedAmmo,
+    Voice_UseBazooka,
+    Voice_BazookaSpotted,
+    Voice_GoGoGo,
+    Voice_Medic,
+    Voice_CoverFlanks,
+    Voice_Tank,
+    Voice_TakeAmmo,
+    Voice_MoveWithtank,
+    Voice_WTF,
+    Voice_FireLeft,
+    Voice_FireRight,
+    Voice_EnemyAhead = 37,
+    Voice_FallBack
+};
+
+/**
+ * ============================================================
+ * STOCKS
+ * ============================================================
+ */
+
+/**
+ * Checks if a player class is valid (not None).
+ *
+ * @param playerClass   The player class value.
+ * @return              True if valid, false otherwise.
+ */
+stock bool IsPlayerClassValid(DODPlayerClass playerClass)
+{
+    return playerClass != DODClass_None;
+}
 
 /**
  * ============================================================
@@ -65,10 +215,10 @@ native int DOD_GetPlayerClass(int client);
 /**
  * Sets a player's current class.
  *
- * @param client    Client index.
- * @param class     DODPlayerClass value to set.
- * @return          true on success, false on failure.
- * @error           Invalid client or class value.
+ * @param client        Client index.
+ * @param playerclass   DODPlayerClass value to set.
+ * @return              true on success, false on failure.
+ * @error               Invalid client or class value.
  */
 native bool DOD_SetPlayerClass(int client, DODPlayerClass playerclass);
 
@@ -84,10 +234,10 @@ native int DOD_GetDesiredPlayerClass(int client);
 /**
  * Sets a player's desired class.
  *
- * @param client    Client index.
- * @param class     DODPlayerClass value to set.
- * @return          true on success, false on failure.
- * @error           Invalid client or class value.
+ * @param client        Client index.
+ * @param playerclass   DODPlayerClass value to set.
+ * @return              true on success, false on failure.
+ * @error               Invalid client or class value.
  */
 native bool DOD_SetDesiredPlayerClass(int client, DODPlayerClass playerclass);
 
@@ -95,8 +245,8 @@ native bool DOD_SetDesiredPlayerClass(int client, DODPlayerClass playerclass);
  * Forces a player's helmet to pop off.
  *
  * @param client        Client index.
- * @param velocity     Vector array (3 floats) for helmet velocity.
- * @param origin       Vector array (3 floats) for helmet origin.
+ * @param velocity      Vector array (3 floats) for helmet velocity.
+ * @param origin        Vector array (3 floats) for helmet origin.
  * @return              true on success.
  * @error               Invalid client index.
  */
@@ -113,7 +263,7 @@ native bool DOD_SetNumControlPoints(int numCP);
 /**
  * Precaches a control point icon material and returns its index.
  *
- * @param material  Material name to precache.
+ * @param material  Material name to precache (e.g. "sprites/obj_icons/icon_obj_allies.vmt").
  * @return          Material index, or 0 on failure.
  */
 native int DOD_PrecacheCPIcon(const char[] material);
@@ -129,7 +279,7 @@ native int DOD_PrecacheCPIcon(const char[] material);
  * @param bombedIcon    Bombed icon material index (0 = no change).
  * @return              true on success.
  */
-native bool DOD_SetCPIcons(int cpIndex, int alliesIcon, int axisIcon, int neutralIcon, int timerCapIcon, int bombedIcon);
+native bool DOD_SetCPIcons(int cpIndex, int alliesIcon = 0, int axisIcon = 0, int neutralIcon = 0, int timerCapIcon = 0, int bombedIcon = 0);
 
 /**
  * Sets whether a control point is visible.
@@ -181,7 +331,7 @@ native float DOD_GetTimeRemaining(int timerEnt);
  * Forces a player to respawn.
  *
  * @param client        Client index.
- * @param useClass      If true, uses the player's desired class.
+ * @param useClass      If true, uses the player's desired class (prevents crashes).
  * @return              true on success.
  * @error               Invalid client index.
  */
@@ -209,30 +359,30 @@ native bool DOD_SetWinningTeam(int team);
 /**
  * Sets the round state.
  *
- * @param state     Round state value.
+ * @param state     DODRoundState value.
  * @return          true on success.
  */
-native bool DOD_SetRoundState(int state);
+native bool DOD_SetRoundState(DODRoundState state);
 
 /**
  * Sets a player's state.
  *
  * @param client    Client index.
- * @param state     Player state value.
+ * @param state     DODPlayerState value.
  * @return          true on success.
  * @error           Invalid client index.
  */
-native bool DOD_SetPlayerState(int client, int state);
+native bool DOD_SetPlayerState(int client, DODPlayerState state);
 
 /**
  * Sets a bomb target's state.
  *
  * @param entity    Entity index of the dod_bomb_target.
- * @param state     Bomb target state value.
+ * @param state     DODBombTargetState value.
  * @return          true on success.
  * @error           Invalid entity index.
  */
-native bool DOD_SetBombTargetState(int entity, int state);
+native bool DOD_SetBombTargetState(int entity, DODBombTargetState state);
 
 /**
  * ============================================================
