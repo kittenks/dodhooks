@@ -9,40 +9,44 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/kittenks/dodhooks/actions">
-    <img src="https://github.com/kittenks/dodhooks/workflows/CI/badge.svg" alt="CI" />
+  <a href="https://github.com/kittenks/dodhooks/actions/workflows/master.yaml">
+    <img src="https://github.com/kittenks/dodhooks/actions/workflows/master.yaml/badge.svg" alt="构建状态" />
   </a>
   <a href="https://github.com/kittenks/dodhooks/releases/latest">
-    <img src="https://img.shields.io/github/v/release/kittenks/dodhooks?style=flat-square&label=最新版本" alt="Latest Release" />
+    <img src="https://img.shields.io/github/v/release/kittenks/dodhooks?style=flat-square&label=最新版本" alt="最新版本" />
   </a>
   <a href="https://github.com/kittenks/dodhooks/releases">
-    <img src="https://img.shields.io/github/downloads/kittenks/dodhooks/total?style=flat-square&label=下载量" alt="Total Downloads" />
+    <img src="https://img.shields.io/github/downloads/kittenks/dodhooks/total?style=flat-square&label=下载量" alt="总下载量" />
   </a>
-  <a href="https://github.com/kittenks/dodhooks/releases/tag/v1.6.0">
-    <img src="https://img.shields.io/github/release-date/kittenks/dodhooks?style=flat-square&label=发布日期" alt="Release Date" />
+  <a href="https://github.com/kittenks/dodhooks/releases/latest">
+    <img src="https://img.shields.io/github/release-date/kittenks/dodhooks?style=flat-square&label=发布日期" alt="发布日期" />
   </a>
   <img src="https://img.shields.io/badge/SourceMod-1.12%20%2F%201.13-orange?style=flat-square" alt="SourceMod" />
-  <img src="https://img.shields.io/badge/平台-Windows%20%2F%20Linux-blue?style=flat-square" alt="Platform" />
-  <img src="https://img.shields.io/badge/架构-x86%20%2F%20x64-green?style=flat-square" alt="Architecture" />
+  <img src="https://img.shields.io/badge/平台-Windows%20%2F%20Linux-blue?style=flat-square" alt="平台" />
+  <img src="https://img.shields.io/badge/架构-x86%20%2F%20x64-green?style=flat-square" alt="架构" />
 </p>
 
 ---
 
 ## 下载
 
-最新稳定版本：**v1.6.0**（发布于 2026-08-24）
+<p align="center">
+  <a href="https://github.com/kittenks/dodhooks/releases/latest">
+    <img src="https://img.shields.io/github/v/release/kittenks/dodhooks?style=for-the-badge&label=最新稳定版本&color=brightgreen" alt="最新稳定版本" />
+  </a>
+</p>
 
 <p align="center">
-  <a href="https://github.com/kittenks/dodhooks/releases/download/v1.6.0/DODHooks-1.6.0-sm1.12-windows.zip">
-    <img src="https://img.shields.io/badge/🪟%20Windows-DODHooks--1.6.0--sm1.12--windows.zip-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="下载 Windows 版" />
+  <a href="https://github.com/kittenks/dodhooks/releases/latest">
+    <img src="https://img.shields.io/badge/🪟%20下载%20Windows%20版-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="下载 Windows 版" />
   </a>
   &nbsp;
-  <a href="https://github.com/kittenks/dodhooks/releases/download/v1.6.0/DODHooks-1.6.0-sm1.12-linux.zip">
-    <img src="https://img.shields.io/badge/🐧%20Linux-DODHooks--1.6.0--sm1.12--linux.zip-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="下载 Linux 版" />
+  <a href="https://github.com/kittenks/dodhooks/releases/latest">
+    <img src="https://img.shields.io/badge/🐧%20下载%20Linux%20版-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="下载 Linux 版" />
   </a>
   &nbsp;
-  <a href="https://github.com/kittenks/dodhooks/releases/download/v1.6.0/DODHooks-1.6.0-source.zip">
-    <img src="https://img.shields.io/badge/📦%20源代码-DODHooks--1.6.0--source.zip-4285F4?style=for-the-badge&logo=github&logoColor=white" alt="下载源代码" />
+  <a href="https://github.com/kittenks/dodhooks/releases/latest">
+    <img src="https://img.shields.io/badge/📦%20下载源代码-4285F4?style=for-the-badge&logo=github&logoColor=white" alt="下载源代码" />
   </a>
 </p>
 
@@ -52,7 +56,7 @@
   </a>
 </p>
 
-> 每个压缩包均包含 32 位扩展二进制、存放 64 位二进制的 `x64/` 子目录、`gamedata/dodhooks.txt` 以及 `scripting/include/dodhooks.inc`。
+> 每个发布压缩包均包含 32 位扩展二进制、存放 64 位二进制的 `x64/` 子目录、`gamedata/dodhooks.txt` 以及 `scripting/include/dodhooks.inc`。上方版本号由 GitHub 最新发布自动检测，无需手动更新。
 
 ---
 
