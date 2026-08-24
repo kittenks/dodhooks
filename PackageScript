@@ -1,0 +1,53 @@
+# vim: set sts=8 sts=2 sw=2 tw=99 et ft=python:
+import os
+
+# This is where the files will be output to.
+builder.SetBuildFolder('package')
+
+_target_arch = ''
+if hasattr(builder, 'options'):
+    _target_arch = getattr(builder.options, 'arch', '') or ''
+
+# 64-bit extensions live under an x64/ subfolder (SourceMod 1.12+ convention).
+# 32-bit extensions sit directly in extensions/.
+if _target_arch in ('x86_64', 'x64', 'amd64', '64'):
+  ext_folder = 'addons/sourcemod/extensions/x64'
+else:
+  ext_folder = 'addons/sourcemod/extensions'
+
+# Add any folders you need to this list.
+folder_list = [
+  ext_folder,
+  'addons/sourcemod/gamedata',
+  'addons/sourcemod/scripting/include',
+]
+
+# Create the distribution folder hierarchy.
+folder_map = {}
+for folder in folder_list:
+  norm_folder = os.path.normpath(folder)
+  folder_map[folder] = builder.AddFolder(norm_folder)
+
+# Do all straight-up file copies from the source tree.
+def CopyFiles(src, dest, files):
+  if not dest:
+    dest = src
+  dest_entry = folder_map[dest]
+  for source_file in files:
+    source_path = os.path.join(builder.sourcePath, src, source_file)
+    builder.AddCopy(source_path, dest_entry)
+
+# GameData files (located in the repository's gamedata/ directory).
+CopyFiles('gamedata', 'addons/sourcemod/gamedata',
+  [ 'dodhooks.txt', ]
+)
+
+# SourcePawn include file (provides natives/forwards and auto-loads the
+# extension via its "public Extension __ext_dodhooks" block).
+CopyFiles('sourcemod/scripting/include', 'addons/sourcemod/scripting/include',
+  [ 'dodhooks.inc', ]
+)
+
+# Copy binaries into the architecture-specific extensions folder.
+for cxx_task in Extension.extensions:
+  builder.AddCopy(cxx_task.binary, folder_map[ext_folder])

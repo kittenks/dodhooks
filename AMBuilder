@@ -1,0 +1,53 @@
+# vim: set sts=2 ts=8 sw=2 tw=99 et ft=python:
+import os
+
+projectName = 'dodhooks'
+
+sm_root = Extension.sm_root
+
+# smsdk_ext.cpp provides the extension loading glue (g_pSM, myself, etc.)
+sourceFiles = [
+  'extension.cpp',
+  'natives.cpp',
+  'vglobals.cpp',
+  os.path.join(sm_root, 'public', 'smsdk_ext.cpp'),
+  os.path.join(sm_root, 'public', 'CDetour', 'detours.cpp'),
+]
+
+# SafetyHook is bundled with CDetour in SourceMod 1.12+ and must be compiled
+# directly into the extension.
+safetyhook_src = os.path.join(sm_root, 'public', 'safetyhook')
+sourceFiles += [
+  os.path.join(safetyhook_src, 'src', 'allocator.cpp'),
+  os.path.join(safetyhook_src, 'src', 'easy.cpp'),
+  os.path.join(safetyhook_src, 'src', 'inline_hook.cpp'),
+  os.path.join(safetyhook_src, 'src', 'mid_hook.cpp'),
+  os.path.join(safetyhook_src, 'src', 'utility.cpp'),
+  os.path.join(safetyhook_src, 'src', 'vmt_hook.cpp'),
+]
+
+if builder.target_platform == 'windows':
+  sourceFiles.append(os.path.join(safetyhook_src, 'src', 'os.windows.cpp'))
+else:
+  sourceFiles.append(os.path.join(safetyhook_src, 'src', 'os.linux.cpp'))
+
+sourceFiles.append(os.path.join(safetyhook_src, 'zydis', 'Zydis.c'))
+
+# ---------------------------------------------------------------------------
+# Create the project
+# ---------------------------------------------------------------------------
+project = Extension.HL2Project(builder, projectName + '.ext')
+
+# Add source files
+project.sources += sourceFiles
+
+# ---------------------------------------------------------------------------
+# Configure a binary for each supported SDK
+# ---------------------------------------------------------------------------
+for sdk_name in Extension.sdks:
+  sdk = Extension.sdks[sdk_name]
+
+  binary_name = '{0}.ext.{1}'.format(projectName, sdk.ext)
+  binary = Extension.HL2Config(project, binary_name, sdk)
+
+Extension.extensions = builder.Add(project)
